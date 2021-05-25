@@ -6,12 +6,12 @@ class OrderHelper:
 
 
     def show_menu(self):
-        #print out the available items
+        #print out the available items. Will later show the number key as well for easier user selection.
         for item in menu.values():
             print(item)
 
     def add_item(self):
-        #add an item to the order, after showing the menu
+        #add an item to the order, after showing the menu. Eventually add functionality to select number from dictionary.
         print("Here's what's on the menu")
         self.show_menu()
 
@@ -21,6 +21,7 @@ class OrderHelper:
             print(f"{item} added to order.")
 
         else:
+            print("input not recognised, please try again")
             return
 
 
@@ -33,7 +34,7 @@ class OrderHelper:
                 print("Here is your current order:")
                 for item in self.order_contents:
                     print(item)
-                next_step = input("Type 'add' to add an item, or 'remove' to remove an item. To place your order, type 'done', or 'exit' to quit the order process: ")
+                next_step = input("Type 'add' to add an item. To place your order, type 'done', or 'exit' to quit the order process: ")
 
                 #Have now taken input. Next is to take appropriate action with list.
                 #if done, set order_active to False and print out order.
@@ -46,12 +47,15 @@ class OrderHelper:
                 elif next_step == "add":
                     print("add selected")
                     self.add_item()
-                #if remove, run remove_item
+                #if remove, run remove_item. Additional feature once user stories done.
                 #if exit, empty list and quit order process
-                if next_step == "exit":
-                    clear(order)
+                elif next_step == "exit":
+                    clear(self.order_contents)
                     print("order cancelled")
-                    self.order_active = Fal
+                    self.order_active = False
+                else:
+                    print("input not recognised")
+                    continue
 
 
 
