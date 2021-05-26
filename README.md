@@ -1,4 +1,4 @@
-#Waiter Helper
+# Waiter Helper
 
 ## User Stories
 
