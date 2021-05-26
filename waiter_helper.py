@@ -7,21 +7,28 @@ class OrderHelper:
 
     def show_menu(self):
         #print out the available items. Will later show the number key as well for easier user selection.
-        for item in menu.values():
-            print(item)
+        for item in menu.keys():
+            print(f"{item}.  {menu[item]}")
 
     def add_item(self):
         #add an item to the order, after showing the menu. Eventually add functionality to select number from dictionary.
         print("Here's what's on the menu")
         self.show_menu()
 
-        item = input("Please type which item you would like to add to your order. Type 'nothing' to add nothing: ")
-        if item in menu.values():
-            self.order_contents.append(item)
-            print(f"{item} added to order.")
+        item = input("Please type the number of the item you would like to add to your order. Otherwise, hit enter to continue: ")
+        try:
+            item = int(item)
+
+        except:
+            return
+
+        if int(item) in menu.keys():
+            added_item = menu.get(int(item))
+            self.order_contents.append(added_item)
+            print(f"{added_item} added to order.")
 
         else:
-            print("input not recognised, please try again")
+            print("number not recognised, please try again")
             return
 
 
