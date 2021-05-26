@@ -89,3 +89,36 @@ The method actually exceeds user story 2, which asks for 3 opportunities to orde
 If the input is not one of the keywords, the loop will repeat.
 
 A second iteration should feature the ability to remove items, and perhaps a smoother way of taking inputs (I have already packaged menu into a dictionary, with numbered keys, which should help with this.)
+
+### Second Iteration:
+
+For this version, i firstly changed the add_item function work based off the dictionary keys in the menu, rather than requiring the user to type out the full name of their desired item. This change affected only ```show_menu``` and ```add_item``` for now, as the addition of the value to the list will result in the same data being used in ```take_order``` as before
+
+```python
+    def show_menu(self):
+        #print out the available items. Will later show the number key as well for easier user selection.
+        for item in menu.keys():
+            print(f"{item}.  {menu[item]}")
+
+    def add_item(self):
+        #add an item to the order, after showing the menu. Eventually add functionality to select number from dictionary.
+        print("Here's what's on the menu")
+        self.show_menu()
+
+        item = input("Please type the number of the item you would like to add to your order. Otherwise, hit enter to continue: ")
+        try:
+            item = int(item)
+
+        except:
+            return
+
+        if int(item) in menu.keys():
+            added_item = menu.get(int(item))
+            self.order_contents.append(added_item)
+            print(f"{added_item} added to order.")
+```
+
+#### An aside - why is menu global?
+
+While it may seem that using a global variable for the menu is not adhering to encapsulation, this was actually done with the reusability of the function in mind. The menu can be set externally, which eventually could include reading in a menu from a file, for example. This would allow a user to simply edit a file without needing to look at the code at all if they wanted to change the menu.
+
