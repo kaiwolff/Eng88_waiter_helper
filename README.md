@@ -120,5 +120,7 @@ For this version, i firstly changed the add_item function work based off the dic
 
 #### An aside - why is menu global?
 
-While it may seem that using a global variable for the menu is not adhering to encapsulation, this was actually done with the reusability of the function in mind. The menu can be set externally, which eventually could include reading in a menu from a file, for example. This would allow a user to simply edit a file without needing to look at the code at all if they wanted to change the menu.
+While it may seem that using a global variable for the menu is not adhering to encapsulation, this was actually done with the reusability of the function in mind. 
+
+The menu can thus be set externally, which eventually could include reading in a menu from a file, for example. This would allow a user to simply edit a file without needing to look at the code at all if they wanted to change the menu.
 

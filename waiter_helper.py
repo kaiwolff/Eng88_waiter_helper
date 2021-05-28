@@ -4,6 +4,12 @@ class OrderHelper:
         self.order_active = True
         self.order_contents = []
 
+    def show_order(self):
+        #print out the ordered items. Will show a number as well as associated item for easier user selection.
+        counter = 1
+        for item in self.order_contents:
+            print(f"{counter}.  {item}")
+            counter += 1
 
     def show_menu(self):
         #print out the available items. Will later show the number key as well for easier user selection.
@@ -39,8 +45,7 @@ class OrderHelper:
                 print("You are currently ordering nothing. Type 'add' to add items, or 'exit' to exit: ")
             else:
                 print("Here is your current order:")
-                for item in self.order_contents:
-                    print(item)
+                self.show_order()
                 next_step = input("Type 'add' to add an item. To place your order, type 'done', or 'exit' to quit the order process: ")
 
                 #Have now taken input. Next is to take appropriate action with list.
